@@ -1,13 +1,13 @@
 import decoder.*
 import jsonData.DataJson200KB
+import kotlinx.browser.document
+import kotlinx.browser.window
 import kotlinx.html.button
 import kotlinx.html.dom.append
 import kotlinx.html.js.div
 import kotlinx.html.js.onClickFunction
 import org.w3c.dom.HTMLElement
 import org.w3c.dom.events.Event
-import kotlin.browser.document
-import kotlin.browser.window
 
 private inline fun measureTimeMs(crossinline block: () -> Unit): Double {
   val startMs = window.performance.now()
@@ -50,10 +50,10 @@ fun main() {
       onClickFunction = addResult(document.body!!, repetitions, KotlinxJsonDecoder, DataJson200KB.data, "kotlinx 200KB")
       +"kotlinx"
     }
-    button {
-      onClickFunction = addResult(document.body!!, repetitions, KotlinxDopJsonDecoder, DataJson200KB.data, "kotlinx DOP 200KB")
-      +"kotlinx DynamicObjectParser"
-    }
+    //button {
+    //  onClickFunction = addResult(document.body!!, repetitions, KotlinxDopJsonDecoder, DataJson200KB.data, "kotlinx DOP 200KB")
+    //  +"kotlinx DynamicObjectParser"
+    //}
     button {
       onClickFunction = addResult(document.body!!, repetitions, ManualWhenJsonDecoder, DataJson200KB.data, "manual when 200KB")
       +"manual when"
